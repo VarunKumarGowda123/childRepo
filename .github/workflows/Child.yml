@@ -1,0 +1,16 @@
+name: Run commands on repository dispatch
+
+on:
+  repository_dispatch:
+    types: [trigger-workflow]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run commands
+      run: echo "Triggered by a repository dispatch event!"
